@@ -3,23 +3,18 @@ import Spinner from "../layout/Spinner";
 import UserItem from "./UserItem";
 import GithubContext from "../../context/github/github-context";
 
-
 function UserResults() {
-  const {users, isLoading, fetchResults} = useContext(GithubContext);
+  const { users, isLoading, fetchResults } = useContext(GithubContext);
 
   useEffect(() => {
     fetchResults();
-  }, []);
+  }, [fetchResults]);
 
-
-
-
-
-  const userData = users.map((user) => <UserItem user={user}/>);
+  const userData = users.map((user) => <UserItem user={user} />);
 
   return (
     <div className="grid gird-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-      {isLoading ? <Spinner/> : userData}
+      {isLoading ? <Spinner /> : userData}
     </div>
   );
 }
