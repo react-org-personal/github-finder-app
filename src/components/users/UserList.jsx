@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Spinner from "../layout/Spinner";
 
 function UserResults() {
   const [users, setUsers] = useState([]);
@@ -23,7 +24,7 @@ function UserResults() {
 
   return (
     <div className="grid gird-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-      {isLoading ? <p>Loading...</p> : userData}
+      {isLoading ? <Spinner/> : userData}
     </div>
   );
 }
