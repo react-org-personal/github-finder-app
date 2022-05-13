@@ -3,7 +3,7 @@ import GithubContext from "../../context/github/github-context";
 
 function UserSearch() {
   const [text, setText] = useState("");
-  const { users, searchResults } = useContext(GithubContext);
+  const { users, searchResults, clearSearch } = useContext(GithubContext);
   const inputHandler = (event) => {
     setText(event.target.value);
   };
@@ -18,6 +18,10 @@ function UserSearch() {
       setText("");
     }
   };
+
+  const clearBtnHandler = () => {
+      clearSearch();
+  }
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
       <div>
@@ -43,7 +47,7 @@ function UserSearch() {
       </div>
       <div>
         {users.length > 0 ? (
-          <button type="submit" className="btn btn-ghost btn-lg">
+          <button type="submit" className="btn btn-ghost btn-lg" onClick={clearBtnHandler}>
             Clear
           </button>
         ) : null}
