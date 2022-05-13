@@ -8,7 +8,7 @@ function UserResults() {
 
 
 
-  const userData = users.map((user) => <UserItem user={user} />);
+  const userData = users.map((user) => <UserItem key={user.id} user={user} />);
 
   return (
     <div className="grid gird-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
