@@ -5,7 +5,7 @@ import {searchResults} from '../../context/github/githubActions';
 
 function UserSearch() {
   const [text, setText] = useState("");
-  const { users, dispatch, clearSearch } = useContext(GithubContext);
+  const { users, dispatch } = useContext(GithubContext);
   const {setAlert} = useContext(AlertContext);
   const inputHandler = (event) => {
     setText(event.target.value);
@@ -25,7 +25,7 @@ function UserSearch() {
   };
 
   const clearBtnHandler = () => {
-      clearSearch();
+      dispatch({type: 'CLEAR_SEARCH'});
   }
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
